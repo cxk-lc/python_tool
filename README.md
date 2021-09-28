@@ -3,3 +3,4 @@
 - log module
 - timing
 - file conversion
+- evenly divided str
