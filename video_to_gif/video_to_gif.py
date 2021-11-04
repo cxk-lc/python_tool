@@ -10,7 +10,7 @@ class ParameterError(Exception):
     pass
 
 
-def video_to_gif(video_path, quality=0.5):
+def video_to_gif(video_path, gif_path=None, quality=0.5):
     supported_formats = ['mp4', 'wmv', 'rm', 'avi', 'flv', 'webm', 'wav',
                          'rmvb']
     if not os.path.exists(video_path):
@@ -19,11 +19,14 @@ def video_to_gif(video_path, quality=0.5):
     name, extension = video_file_name.split('.')
     if extension.lower() not in supported_formats:
         raise ParameterError(f'*.{extension} file is not supported.')
-    gif_path = os.path.join(dir_path, f'{name}.gif')
-    clip = VideoFileClip(video_path).subclip().resize(quality)
-    print('Start conversion...')
-    clip.write_gif(gif_path)
-    print(f'Output GIF to {gif_path} succeeded.')
+    if not gif_path:
+        gif_path = os.path.join(dir_path, f'{name}.gif')
+    # print('Start conversion...')
+    clip = VideoFileClip(video_path)
+    clip.set_duration(clip.duration)
+    clip.write_gif(gif_path, fps=clip.fps * quality, verbose=False)
+    clip.close()
+    # print(f'Output GIF to {gif_path} succeeded.')
 
 
 if __name__ == '__main__':
