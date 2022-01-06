@@ -4,3 +4,6 @@
 - timer
 - file conversion
 - evenly divided str
+- numpy_tool
+  - print_array_index
+- update_github_host
