@@ -16,7 +16,7 @@ from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal, QThread
 from PyQt5.QtGui import QTextCursor
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 # 导入designer工具生成的login模块
-from ui import Ui_MainWindow
+from app_ui import Ui_MainWindow
 from video_to_gif import video_to_gif
 
 
