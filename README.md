@@ -8,7 +8,8 @@
     - [schedule_timer](timer/time_task/schedule_timer.py)
     - [threading_timer](timer/time_task/threading_timer.py)
     - [sched_timer](timer/time_task/sched_timer.py)
-    - [apscheduler](timer/time_task/apscheduler_timer.py)
+    - [apscheduler_timer](timer/time_task/apscheduler_timer.py)
+    - [timeloop_timer](timer/time_task/timeloop_timer.py)
 - 异步 async
   - [asyncio](async/async_io.py)
 - 文件格式转换 file conversion
