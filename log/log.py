@@ -35,7 +35,6 @@ class CustomLogger:
             tuple(handler_file_handler_conf.strip('()').split(','))
         log_file_path = re.sub(r"['\"]", "", log_file_path)
         log_file_dirname = os.path.dirname(log_file_path)
-        print(log_file_dirname)
         if not os.path.exists(log_file_dirname):
             os.makedirs(log_file_dirname)
 
@@ -54,6 +53,9 @@ class CustomLogger:
     def critical(self, message):
         self.logger.critical(message)
 
+    def exception(self, message):
+        self.logger.exception(message)
+
 
 # usage example
 if __name__ == "__main__":
@@ -68,3 +70,7 @@ if __name__ == "__main__":
     logger.warning('this is a warning message.')
     logger.error('this is an error message.')
     logger.critical('this is a critical message.')
+    try:
+        1/0
+    except ZeroDivisionError as e:
+        logger.exception('this is a exception message.')
